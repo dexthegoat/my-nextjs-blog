@@ -12,12 +12,13 @@ export default function HomePage({ posts }) {
   );
 }
 
-export async function getStaticProps() {
+export function getStaticProps() {
   const featuredPosts = getFeaturedPosts();
 
   return {
     props: {
       posts: featuredPosts,
     },
+    revalidate: 1800,
   };
 }
